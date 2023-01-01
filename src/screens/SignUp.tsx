@@ -8,7 +8,7 @@ import { Button } from '@components/Button';
 export function SignUp() {
     return (
         <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
-            <VStack flex={1} bg="gray.700" px={10}>
+            <VStack flex={1} px={10} pb={16}>
                 <Image 
                     source={BackgroundImg}
                     alt="Pessoas treinando"
@@ -50,7 +50,7 @@ export function SignUp() {
                 </Center>
 
                 <Button 
-                    mt={12}
+                    mt={24}
                     title="Voltar para o login" 
                     variant="outline" 
                 />
