@@ -1,4 +1,4 @@
-import { Heading, HStack, Icon, Text, VStack } from 'native-base';
+import { Heading, HStack, Icon, Text, VStack, Image } from 'native-base';
 import { TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -32,6 +32,18 @@ export function Exercise() {
                         </Text>
                     </HStack>
                 </HStack>
+            </VStack>
+
+            <VStack p={8}>
+                <Image 
+                    w="full"
+                    h={80}
+                    mb={3}
+                    source={{ uri: 'https://blog.gsuplementos.com.br/wp-content/uploads/2020/11/iStock-949560442-1024x675.jpg' }}
+                    alt="Nome do exercício"
+                    resizeMode="cover"
+                    rounded="lg"
+                />
             </VStack>
         </VStack>
     );
