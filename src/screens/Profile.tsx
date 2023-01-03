@@ -15,18 +15,29 @@ export function Profile() {
     const [userPhoto, setUserPhoto] = useState<string | undefined>('https://github.com/brenoricco.png');
 
     async function handleUserPhotoSelect() {
-        const photoSelected = await ImagePicker.launchImageLibraryAsync({
-            mediaTypes: ImagePicker.MediaTypeOptions.Images,
-            quality: 1,
-            aspect: [4, 4],
-            allowsEditing: true
-        });
+        setPhotoIsLoading(true);
 
-        if(photoSelected.canceled) {
-            return
-        }
+        try {
+            const photoSelected = await ImagePicker.launchImageLibraryAsync({
+                mediaTypes: ImagePicker.MediaTypeOptions.Images,
+                quality: 1,
+                aspect: [4, 4],
+                allowsEditing: true
+            });
+    
+            if(photoSelected.canceled) {
+                return
+            }
 
-        setUserPhoto(photoSelected.assets[0].uri);
+            if(photoSelected.assets.length && photoSelected.assets[0].uri) {
+                setUserPhoto(photoSelected.assets[0].uri);
+            }    
+            
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setPhotoIsLoading(false);
+        }        
     }
 
     return (
