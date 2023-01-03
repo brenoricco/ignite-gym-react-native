@@ -7,15 +7,17 @@ import { Button } from '@components/Button';
 import { useNavigation } from '@react-navigation/native';
 
 import { AuthNavigatorRoutesProps } from '@routes/auth.routes';
+import { AppNavigatorRoutesProps } from '@routes/app.routes';
 
 export function SignIn() {
 
     const navigation = useNavigation<AuthNavigatorRoutesProps>();
+    const appNavigation = useNavigation<AppNavigatorRoutesProps>();
 
     function handleNewAccount() {
         navigation.navigate('signUp');
     } 
-
+    
     return (
         <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
             <VStack flex={1} px={10} pb={16}>
